@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="../Bootstrap_Files/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="../Bootstrap_Files/css/bootstrap.css">
+    <link rel="stylesheet" href="../Bootstrap_Files/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../Bootstrap_Files/CustomCSS/flaticon.css">
+    <link rel="stylesheet" href="../Bootstrap_Files/CustomCSS/icomoon.css">
+    <link rel="stylesheet" href="../Bootstrap_Files/CustomCSS/style.css">
+    <style>
+        body {
+            background-image: url(../Images/bg_4.jpg);
+            background-size: cover;
+        }
+
+        .navbar {
+            background-color: #3B3544;
+        }
+
+        .navbar-brand {
+            color: #FFF;
+        }
+
+        .navbar-nav .nav-link {
+            color: #FFF;
+        }
+
+        .nav_bars {
+            padding: 10px;
+            border: 1px solid;
+            color: #FFF;
+        }
+
+        #title {
+            font-size: xx-large;
+            color: rgb(75, 58, 77);
+            background-color: rgba(0, 0, 0, 0.6);
+            text-align: center;
+            width: 500px;
+        }
+
+        #form {
+            text-align: left;
+            width: 50%;
+            height: 50%;
+            border-width: 1;
+            background-color: transparent;
+            margin-left: 200px;
+        }
+
+        .labels {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: green;
+        }
+
+        .input-fields{
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        #email {
+            border-radius: 10px;
+            color: #FFF;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 500px;
+            height: 50px;
+        }
+
+        #password {
+            border-radius: 10px;
+            color: #FFF;
+            margin-top: 20px;
+            width: 500px;
+            height: 50px;
+        }
+
+        #login {
+            border-radius: 10px;
+            margin-top: 30px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: green;
+        }
+
+        #status {
+            background-color: transparent;
+            border: none;
+            width: 500px;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #left-section {
+            flex: 1;
+            width: 50%;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 20px;
+        }
+
+        #right-section {
+            flex: 2;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="welcome.html" style="padding-left: 200px;">Healthy<br><small>DIET</small></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="navbar-nav ml-auto" style="padding-right: 200px;">
+                <li class="nav-item">
+                    <a class="nav-link" href="register.html">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="signIn.html">Sign In</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="margin-top: 70px;">
+        <div id="left-section">
+            <p>Welcome to <a class="navbar-brand" href="welcome.html">
+                    Healthy<br><small>DIET</small>
+                </a> <br>To order luxury meals: Sign in to your account...</p>
+        </div>
+        <div id="right-section">
+            <fieldset id="form">
+                <h2 id="title">..Please Login to your Account...</h2>
+                <label for="email" class="labels">Email address</label><br>
+                <input type="email" id="email"class="input-fields"><br>
+                <label for="password" class="labels">Password</label><br>
+                <input type="password" id="password"class="input-fields"><br>
+                <button id="login" onclick="login()">Login</button>
+                <input type="text" id="status">
+            </fieldset>
+        </div>
+    </div>
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer" style="margin-top: 100px;">
+
+        <div class="container">
+            <div class="row gy-3">
+                <div class="col-lg-3 col-md-6 d-flex">
+                    <i class="bi bi-geo-alt icon"></i>
+                    <div>
+                        <h4>Address</h4>
+                        <p>
+                            A108 Adam Street <br>
+                            New York, NY 535022 - US<br>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links d-flex">
+                    <i class="bi bi-telephone icon"></i>
+                    <div>
+                        <h4>Reservations</h4>
+                        <p>
+                            <strong>Phone:</strong> +1 5589 55488 55<br>
+                            <strong>Email:</strong> info@example.com<br>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links d-flex">
+                    <i class="bi bi-clock icon"></i>
+                    <div>
+                        <h4>Opening Hours</h4>
+                        <p>
+                            <strong>Mon-Sat: 11AM</strong> - 23PM<br>
+                            Sunday: Closed
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Follow Us</h4>
+                    <div class="social-links d-flex">
+                        <a href="https://www.twitter.com" class="twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="https://www.facebook.com" class="facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com" class="instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.linkedin.com" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span> <a class="navbar-brand" href="welcome.html">
+                            Healthy<br><small>DIET</small>
+                        </a></span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                Designed by <a class="navbar-brand" href="welcome.html">
+                    Healthy<br><small>DIET</small>
+                </a>
+            </div>
+        </div>
+
+    </footer>
+    <!-- End Footer -->
+    <script>
+        function login() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            // Retrieve stored email and password from LocalStorage
+            var storedEmail = localStorage.getItem("email");
+            var storedPassword = localStorage.getItem("password");
+
+            if (storedEmail === email  && storedPassword === password) {
+                document.getElementById("status").value = "Loggedin Successfully. Redirecting to home page....";
+                document.getElementById("status").style.color = "green";
+
+                // Wait for 3 seconds (3000 milliseconds) and then redirect to "home.html"
+                setTimeout(function () {
+                    window.location.href = "home3.html"; // Change to "home3.html" if needed
+                }, 1000);
+            } else {
+                document.getElementById("status").value = "Login Failed!!!";
+                document.getElementById("status").style.color = "red";
+            }
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="../Bootstrap_Files/js/bootstrap.js"></script>
+    <script src="../Bootstrap_Files/js/bootstrap.min.js"></script>
+</body>
+
+</html>

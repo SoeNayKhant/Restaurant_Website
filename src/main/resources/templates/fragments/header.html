@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Insert title here</title>
+	<style>
+		.side-menu a:hover {
+			color: white;
+			font-weight: �bolder;
+		}
+	</style>
+</head>
+
+<body>
+
+	<header style="background-color: olive;">
+		<nav class="navbar navbar-expand-lg">
+			<div class="container d-flex justify-content-between align-items-center">
+				<!-- <a class="navbar-brand" href="#"> <img alt="logo"
+					src="Images/logo.png" width="70" height="70">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarNav" aria-controls="navbarNav"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button> -->
+				<a class="navbar-brand" th:href="@{/}"> <span class="text-light">Healthy</span><br>
+					<small>DIET</small></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+					aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="oi oi-menu"></span> Menu
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="/items">Products</a>
+						</li>
+						<li sec:authorize="hasRole('USER')" class="nav-item">
+							<div class="dropdown side-menu">
+								<a class="nav-link btn btn-secondary dropdown-toggle" href="" role="button"
+									data-bs-toggle="dropdown" aria-expanded="false">Category
+								</a>
+								<ul class="dropdown-menu bg-warning">
+									<li th:each="category:${categoryList}"><a class="dropdown-item"
+											th:href="@{/categories{id}(id=${category.id})}" th:text="${category.name}">
+										</a></li>
+								</ul>
+							</div>
+						</li>
+						<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a class="nav-link"
+								th:href="@{/categories}">Categories</a></li>
+						<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a class="nav-link"
+								th:href="@{/members}">Members</a></li>
+						<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a class="nav-link"
+								th:href="@{/feedbacks}">Feedbacks</a></li>
+						<li sec:authorize="!hasRole('ADMIN')" class="nav-item"><a class="nav-link"
+								th:href="@{/cart}"><svg xmlns="http://www.w3.org/2000/svg" height="1.25em"
+									viewBox="0 0 576 512">
+									<style>
+										svg {
+											fill: #c5da25
+										}
+									</style>
+									<path
+										d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+								</svg>
+								<span sec:authorize="hasRole('USER')"
+									class=" translate-middle badge rounded-pill bg-success text-light"
+									th:if="${count!=0}" th:text="${count}"> <span class="visually-hidden">unread
+										messages</span>
+								</span></a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/service}">Services</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/about}">About
+								Us</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact Us</a></li>
+						<li><a sec:authorize="!isAuthenticated()" th:href="@{/login}"
+								class="btn btn-outlinne-light btn-warning me-2">Log In</a></li>
+						<li><a sec:authorize="!isAuthenticated()" th:href="@{/memberadd}" class="btn btn-warning">Sign
+								Up</a></li>
+					</ul>
+				</div>
+
+				<div class="dropdown side-menu text-end mr-5 " sec:authorize="isAuthenticated()">
+					<a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toogle"
+						data-bs-toggle="dropdown" aria-expended="false"> <img alt="mdo"
+							th:src="@{uploads/members/{id}/{photoName}(id=${member.id},photoName=${member.photoName})}"
+							width="32" height="32" class="rounded-circle">
+					</a>
+					<ul class="dropdown-menu bg-warning text-small">
+						<li><a class="dropdown-item text-danger" href="" sec:authentication="principal.member.name"></a>
+						</li>
+						<li sec:authorize="hasRole('ADMIN')"><a class="dropdown-item text-danger" href="#"
+								sec:authentication="principal.member.role"></a></li>
+						<li>
+							<hr class="dropdown-divider">
+						</li>
+						<li class="dropdown-item">
+							<form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
+								<button type="submit" class="btn btn-outlinne-light btn-warning me-2">Logout</button>
+							</form>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<div sec:authorize="isAuthenticated()">
+		<h4 class="text-center text-light mt-5">
+			Hello <span sec:authentication="principal.member.name"></span>!
+		</h4>
+	</div>
+</body>
+
+</html>
